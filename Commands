@@ -1,0 +1,2 @@
+docker build -t shuvankar/patient-service:v1.0 .
+docker run -p 8092:8080 shuvankar/patient-service:v1.0
