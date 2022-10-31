@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: patient-service
+  labels:
+    app: patient-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: patient-service
+  template:
+    metadata:
+      labels:
+        app: patient-service
+    spec:
+      containers:
+      - name: patient-service
+        image: shuvankar/patient-service:v1.1
+        imagePullPolicy: Never
+        
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: patient-service
+spec:
+  type: NodePort
+  selector:
+    app: patient-service
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 31000
