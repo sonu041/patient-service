@@ -1,6 +1,6 @@
 # Create docker container
-docker build -t shuvankar/patient-service:v1.1 .
-docker run -p 8092:8080 shuvankar/patient-service:v1.0
+docker build -t shuvankar/patient-service:v2.0 .
+docker run -p 8092:8080 shuvankar/patient-service:v2.0
 
 # Start minikube services
 minikube start
@@ -10,7 +10,7 @@ minikube docker-env
 minikube docker-env | Invoke-Expression
 
 # Load the image inside minikube for local development only.
-minikube image load shuvankar/patient-service:v1.1
+minikube image load shuvankar/patient-service:v2.0
 
 # Deploy the services in kubernetes.
 kubectl apply -f kube/app-deployment.yaml
